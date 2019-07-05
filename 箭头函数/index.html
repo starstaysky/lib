@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 普通函数
+  // setTimeout("alert(this)", 1); 
+  // var b = 1;
+  // function getVariable(){
+  //   this.a=2
+  //   setTimeout(function(){
+  //    // console.log(this)
+  //   },100)
+  // }
+  // getVariable()
+  // console.log(a)
+  
+  // IIEF 还是指向全局
+
+  // (function getVariable(){
+  //   this.a=2
+  //   setTimeout(function(){
+  //    // console.log(this)
+  //   },100)
+  // })()
+  // console.log(a)
+
+  // 闭包
+  // var a =2 
+  // function scopedFunc(){
+  //   "use strict"
+  //   var a = 1
+  //   return function(){
+  //     setTimeout(function(){
+  //       console.log(a)
+  //     },10)
+  //   }
+  // }
+  // scopedFunc()()
+  // console.log(a+'outer')
+  // 1
+  // 2outer
+
+  var obj = {
+    say :　function () {
+        setTimeout(function () {
+            console.log('setTimeout:'+this);
+        },0);
+    },
+    hello : function () {
+        console.log('hello:'+this);
+    }
+};
+obj.say();   //setTimeout:[object Window]
+
+obj.hello();   //hello:[object Object]
+
+
+  </script>
+</body>
+</html>
